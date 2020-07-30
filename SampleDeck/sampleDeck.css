@@ -1,0 +1,12 @@
+/*https://magic.wizards.com/en/articles/archive/feature/sample-decks-2013-06-03*/
+
+div{
+  height: 300px;
+  width:200px;
+  background-size: 100% 100%;
+  background-image: url('https://gamepedia.cursecdn.com/mtgsalvation_gamepedia/f/f8/Magic_card_back.jpg');
+  margin: 5px;
+}
+body{
+
+}
