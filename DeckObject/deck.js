@@ -3,6 +3,7 @@ function Deck(list){
   this.list = list
 }
 Deck.prototype = {
+  constructor: Deck,
   count : function () { return this.list.length },
   printList : function () {
     for(let i in this.list){
