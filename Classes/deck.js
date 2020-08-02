@@ -20,13 +20,4 @@ Deck.prototype = {
   }
 }
 
-
-//Tests:
-
-greeDeck = new Deck(['card1', 'card2'])
-greeDeck.count()
-greeDeck.printList()
-console.log(greeDeck.draw())
-console.log(greeDeck.draw())
-console.log(greeDeck.draw())
-console.log(greeDeck.draw())
+//TESTS:
