@@ -4,6 +4,7 @@ function Deck(list){
 }
 Deck.prototype = {
   constructor: Deck,
+  empty: false,
   count : function () { return this.list.length },
   printList : function () {
     for(let i in this.list){
@@ -11,24 +12,41 @@ Deck.prototype = {
     }
   },
   draw : function () {
-    if(this.list.length > 0){
       let randomIndex = Math.ceil(Math.random() * (this.count()-1))
       let drawnCard = this.list[randomIndex]
       this.list.splice(randomIndex,1)
-      return drawnCard
-    } return 'deck empty'
-  }
+      if(this.list.length == 0){
+        this.empty = true
+      }
+      return  drawnCard
+}
 }
 
 //TESTS:
-//insert stuff
-console.log('hi')
-console.log('hi', 2)
+function Hand(){
+}
+Hand.prototype = {
+  constructor: Hand,
+  hand: [],
+  drawFrom: function (Obj, n){
+    for(let i=0; i<n; i++){
+    if (!Obj.empty){
+      this.hand.push(Obj.draw())
+    } else {
+      console.log('out of cards')
+    }
+  }
+    console.log('After draw, new hand is: ', this.hand)
+  },
+  size : function(){ return this.hand.length},
+  displayHand : function(){ console.log(this.hand) }
+}
 // Test Deck.js
-greenDeck = new Deck(['card1', 'card2'])
+sampleDeck =  ['c1','c2','c3', 'c4', 'c5','c6','c7','c8', 'c9', 'c10','c11','c12','c13', 'c14', 'c15',]
+greenDeck = new Deck(sampleDeck)
 greenDeck.count()
 greenDeck.printList()
-console.log(greenDeck.draw())
-console.log(greenDeck.draw())
-console.log(greenDeck.draw())
-console.log(greenDeck.draw())
+
+
+playerHand = new Hand()
+playerHand.drawFrom(greenDeck, 10)
